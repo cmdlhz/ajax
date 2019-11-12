@@ -7,7 +7,7 @@
 <title>Index</title>
 </head>
 <body>
-<a href="/views/ajax/list">ajax list 가기</a><br>
-<a href="/jsp/board/list">jsp list 가기</a>
+<a style="text-decoration:none" href="/views/ajax/list">ajax list 가기</a><br>
+<a style="text-decoration:none" href="/jsp/board/list">jsp list 가기</a>
 </body>
 </html>
