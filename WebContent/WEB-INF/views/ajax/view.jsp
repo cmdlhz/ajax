@@ -12,7 +12,7 @@ ${param.biNum}
 <div class="container">
 	<table class="table table-bordered">
 		<tr>
-			<th>번호</th>
+			<th>번호 !</th>
 			<td data-col="biNum"></td>
 		</tr>
 		<tr>
@@ -35,38 +35,25 @@ ${param.biNum}
 			<th>작성시간</th>
 			<td data-col="cretim"></td>
 		</tr>
+		<tr>
+			<th colspan="2">
+				<button onclick="goPage('/ajax/update?biNum=${param.biNum}')">수정</button>
+				<button onclick="goPage('/ajax/list')">리스트 가기</button>
+			</th>
+		</tr>
 	</table>
 </div>
 <script>
-// window.onload = function(){
-// 	var xhr = new XMLHttpRequest();
-// 	// "cmd=view"는 왜?????
-// 	xhr.open('GET', '/ajax/board/view?cmd=view&biNum=${param.biNum}');
-// < % = : 이 표시와 함께 request.getParameter("biNum")를 쓸 수도 있음 ${param.biNum} 대신에
-// 	xhr.onreadystatechange = function(){
-// 		if(xhr.readyState == 4){
-// 			if(xhr.status == 200){
-// 				var board = JSON.parse(xhr.responseText);
-// 				var tds = document.querySelectorAll(['data-col']);
-// 				for(var td of tds){
-// 					var col = td.getAttribute('data-col');
-// 					td.innerHTML = board[col];
-// 				}
-// 			}	
-// 		}
-// 	}
-// 	xhr.send();
-// }
-
 window.onload = function(){
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST','/ajax/board/view?cmd=view&biNum=${param.biNum}');
+	xhr.open('GET','/ajax/board/view?cmd=view&biNum=${param.biNum}');
 	// http://localhost/views/ajax/view?biNum=121
 	// 이거 때문에 에러남
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState==4){
 			if(xhr.status==200){
 				var board = JSON.parse(xhr.responseText);
+				console.log(board);
 				var tds = document.querySelectorAll('[data-col]');
 				for(var td of tds){
 					var col = td.getAttribute('data-col');

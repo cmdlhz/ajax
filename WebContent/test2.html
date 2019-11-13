@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+	var ani1 = {
+		name: "dog"
+	}
+	var animals = [ani1];
+	animals = [ani1, {
+		name: "cat"
+	}];
+// 	console.log(animals);
+	
+// 	console.log(animals[0].name);
+// 	console.log(animals[1]['name']);
+	
+	
+	
+	var ani2 = {
+		name: "dog"
+	}
+	var animals2 = [ani2, ani2];
+	console.log(animals2);
+	animals2[0].name = "cat";
+// 	console.log(animals2);
+// 	console.log(animals2[1].name);
+	
+	
+	
+	var ani3 = {};
+	var anis3 = [];
+	anis3.push(ani3);
+	ani3.name = 'cat';
+	console.log(anis3);
+	
+</script>
+</html>

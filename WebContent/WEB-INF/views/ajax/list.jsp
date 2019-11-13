@@ -13,7 +13,8 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">제목</th>
+      <th scope="col">제목 (views)</th>
+      <th scope="col">제목 (board)</th>
       <th scope="col">작성일</th>
       <th scope="col">작성시간</th>
     </tr>
@@ -26,8 +27,7 @@
 <script>
 window.onload = function(){
 	var xhr = new XMLHttpRequest();
-	// "cmd=list"는 왜?????
-	xhr.open('GET','/ajax/board/list?cmd=list');
+	xhr.open('GET','/ajax/board/view?cmd=list');
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState == 4 && xhr.status == 200){
 			var list = JSON.parse(xhr.responseText);
@@ -37,6 +37,7 @@ window.onload = function(){
 				html += '<tr>';
 				html += '<td>' + list[i].biNum + '</td>';
 				html += '<td><a href="/views/ajax/view?biNum=' + list[i].biNum +'">' + list[i].biTitle + '</a></td>';
+				html += '<td><a href="/ajax/board/view?cmd=view&biNum=' + list[i].biNum +'">' + list[i].biTitle + '</a></td>';
 				html += '<td>' + list[i].credat + '</td>';
 				html += '<td>' + list[i].cretim + '</td>';
 				html += '</tr>';

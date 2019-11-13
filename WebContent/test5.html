@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<select id="city"></select>
+<input type="text" id="selectCity" value=""></input>
+<button onclick="selectCity()">SHOW</button>
+
+<script type="text/javascript">
+var cities = ["Chicago", "LA", "NYC", "Seattle", "Austin"];
+
+var city = document.querySelector('#city');
+var html = '<option value="">선택</option>';
+for(var el of cities){
+	html += `<option value=${el}> ${el} </option>`;
+// 	html += '<option value="' + el + '">' + el + '</option>';
+}
+city.innerHTML = html;
+
+function selectCity(){
+	var input = document.querySelector('#selectCity');
+	input.value = document.querySelector('#city').value;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+Name : <input type="text" id="name"></input><br>
+Age : <input type="text" id="age"></input><br>
+Address : <input type="text" id="addr"></input>
+</body>
+<script>
+var userInfo = {
+	name : 'Jen',
+	age : 33,
+	addr : 'Seoul, Korea'
+}
+var inputs = document.querySelectorAll('input');
+// for(var input of inputs){
+// 	console.log(input.id);
+// 	if(input.id) input.value = userInfo[input.id];
+// }
+inputs.forEach(e => {
+	e.value = userInfo[e.id];
+})
+</script>
+</html>

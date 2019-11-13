@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+Game : <input type="checkbox" name="hobby" value="game"><br>
+Soccer : <input type="checkbox" name="hobby" value="soccer"><br>
+Movie : <input type="checkbox" name="hobby" value="movie"><br>
+Music : <input type="checkbox" name="hobby" value="music">
+</body>
+<script>
+var hobby = 'music';
+
+// var inputs = document.querySelectorAll('input');
+// for(var input of inputs){
+// 	console.log(input);
+// 	if(input.name == 'hobby' && input.value == hobby) input.checked = true;
+// }
+
+
+document.querySelector('[value=' + hobby + ']').checked = true;
+</script>
+</html>

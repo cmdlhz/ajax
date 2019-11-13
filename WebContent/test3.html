@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="div1">div1</div>
+<div id="div2">div2</div>
+<div id="div3">div3</div>
+</body>
+<script>
+var divs = document.querySelectorAll('div');
+// console.log(divs);
+
+// for(var div of divs){
+// 	console.log(div.id);
+// }
+
+var contents = {
+	div1 : 'a is an apple.',
+	div2 : 'b is a boy.',
+	div3 : 'c is a cat'
+}
+
+for(var div of divs){
+	console.log(contents[div.innerText]);
+}
+
+for(var i=0; i<divs.length; i++){
+	var div = divs[i];
+	div.innerText = contents[div.innerText];
+}
+</script>
+</html>

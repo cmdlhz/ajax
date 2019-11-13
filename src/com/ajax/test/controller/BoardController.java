@@ -38,21 +38,24 @@ public class BoardController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		System.out.println("3. I would be called whenever 'get'method is used.");
 //		String kind = request.getRequestURI().substring(1,4);
-		response.setContentType("text/html;charset=utf-8");
+		
+		// "application/json"에서 "/" : 폴더 아님!
+		response.setContentType("application/json;charset=utf-8");
 		PrintWriter pw = response.getWriter();
 		
 //		cmd로 구분
 		String cmd = request.getParameter("cmd");
 		
+		// ==은 메모리 주소 비교니까 쓰지마세요 (자바스크립트에서는 ==는 값만 비교)
 		if("list".contentEquals(cmd)) {
 			List<Map<String, String>> boardList = bs.selectBoardList(null);
 			pw.print(g.toJson(boardList));
 		} else if("view".contentEquals(cmd)) {
-			// 선생님은 map 대신 vo 쓰심
 			Map<String, String> param = new HashMap<>();
 			param.put("biNum", request.getParameter("biNum"));
 			// int로 받아도 됨
 			Map<String, String> board = bs.selectBoard(param);
+//			System.out.println(board);
 			pw.print(g.toJson(board));
 		}
 		return;

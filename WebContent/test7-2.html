@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<button>CLICK!</button>
+<input type="text" id="test">
+<script>
+function click(){
+	document.querySelector('#test').type = 'button';
+	document.querySelector('#test').value = '나는 버튼이다!';
+	document.querySelector('#test').onclick = function(){
+		this.type = 'text';
+		this.value = '';
+	}
+}
+var btn = document.querySelector('button');
+btn.onclick = click;
+
+// 이건 바로 실행됨 loading 하자마자
+// btn.onclick = click();
+</script>
+</body>
+</html>
