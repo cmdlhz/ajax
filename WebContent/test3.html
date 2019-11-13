@@ -11,7 +11,8 @@
 </body>
 <script>
 var divs = document.querySelectorAll('div');
-// console.log(divs);
+console.log(divs);
+console.log('typeof / divs:' + typeof(divs));
 
 // for(var div of divs){
 // 	console.log(div.id);
@@ -24,11 +25,14 @@ var contents = {
 }
 
 for(var div of divs){
+	console.log(div);
 	console.log(contents[div.innerText]);
 }
 
 for(var i=0; i<divs.length; i++){
 	var div = divs[i];
+	console.log(div);
+	console.log('typeof / div:' + typeof(div));
 	div.innerText = contents[div.innerText];
 }
 </script>
