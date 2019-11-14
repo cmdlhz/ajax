@@ -85,7 +85,10 @@ onclick = function(){
 			var inputs = document.querySelectorAll('[id]');
 			for(var idx in inputs){
 				var input = inputs[idx];
-		 		console.log(input.id);
+		 		console.log("input.id : " + input.id);
+		 		// input.id : biTitle
+				// input.id : biContent
+				// input.id : uiNum
 		 		
 				if(input.id){
 					 input.value = board[input.id];

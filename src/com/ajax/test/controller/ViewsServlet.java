@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 // urlPatterns : 여러 개! ("," 사용해서 추가)
+// "*.test" 라고 하면 앞에 뭐가 오든 마지막에 붙는 게 ".test"이면 됨
 @WebServlet(name = "/ViewsServlet", urlPatterns = {"/views/*"}, loadOnStartup = 2)
 public class ViewsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -56,6 +56,8 @@ public class BoardController extends HttpServlet {
 			// int로 받아도 됨
 			Map<String, String> board = bs.selectBoard(param);
 //			System.out.println(board);
+			
+			// JSON 형태의 string으로
 			pw.print(g.toJson(board));
 		}
 		return;

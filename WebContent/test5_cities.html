@@ -22,8 +22,10 @@ window.onload = function(){
 			var html = '<option value="">º±≈√</option>';
 			
 			for(var i of cities){
-// 				html += `<option value=${cities[i].sNum}> ${cities[i].sName} </option>`;
-			 	html += '<option value="' + i.sNum + '">' + i.sName + '</option>';
+				console.log(i);
+				html += `<option value=${i.sName}> ${i.sName} </option>`;
+// 			 	html += '<option value="' + i.sName + '">' + i.sName + '</option>';
+			 	console.log(html);
 			}
 			city.innerHTML = html;	
 		}
