@@ -10,15 +10,26 @@
 <button onclick="selectCity()">SHOW</button>
 
 <script type="text/javascript">
-var cities = ["Chicago", "LA", "NYC", "Seattle", "Austin"];
 
-var city = document.querySelector('#city');
-var html = '<option value="">선택</option>';
-for(var el of cities){
-	html += `<option value=${el}> ${el} </option>`;
-// 	html += '<option value="' + el + '">' + el + '</option>';
+window.onload = function(){
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', '/test');
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4 && xhr.status == 200){
+			var cities = JSON.parse(xhr.responseText);
+			console.log(cities);
+			var city = document.querySelector('#city');
+			var html = '<option value="">선택</option>';
+			
+			for(var i of cities){
+// 				html += `<option value=${cities[i].sNum}> ${cities[i].sName} </option>`;
+			 	html += '<option value="' + i.sNum + '">' + i.sName + '</option>';
+			}
+			city.innerHTML = html;	
+		}
+	}
+	xhr.send();
 }
-city.innerHTML = html;
 
 function selectCity(){
 	var input = document.querySelector('#selectCity');

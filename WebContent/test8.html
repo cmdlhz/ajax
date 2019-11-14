@@ -6,67 +6,31 @@
 </head>
 <body>
 <script>
-var a = function(){
-	console.log(1);
-}
-
-// a 자체를 대입
-var b = a;
-
-// a를 다 수행한 결과를 대입
-var c = a();
-document.write('a 는 : ' + a);
-document.write('<br>');
-document.write('a의 종류는 : ' + typeof(a));
-document.write('<br>');
-document.write('b 는 : ' + b);
-document.write('<br>');
-document.write('b의 종류는 : ' + typeof(b));
-document.write('<br>');
-document.write('c 는 : ' + c);
-document.write('<br>');
-document.write('<br>');
-document.write('<br>');
-
-
-
-var a = function(){
-	console.log(2);
-	return function(){
-		console.log(3);
+// 전화기를 들고
+var xhr = new XMLHttpRequest();
+// 번호 누르고
+xhr.open('GET', '/test');
+// 정확히 통신 연결이 되어야 하고
+xhr.onreadystatechange = function(){
+	
+	if(xhr.readyState == 4){
+		if(xhr.status == 200){
+			// HTML 코드가 담긴 String
+			document.write(xhr.responseText);
+			// 그냥 [object Object]로 나옴
+// 			document.write(JSON.parse(xhr.responseText));
+			console.log(JSON.parse(xhr.responseText));
+		} else {
+			// 오류에 대한 처리
+// 			document.write(xhr.responseText);
+			// 톰켓이 가지고 있는 error page를 customize 할  수 있음
+			document.write("해당 파일이 없습니다.");
+		}
 	}
 }
+// 전화를 걸어야 하고
+xhr.send();
 
-// a 자체를 대입
-var b = a;
-
-// a를 다 수행한 결과를 대입
-var c = a();
-document.write('a 는 : ' + a);
-document.write('<br>');
-document.write('a의 종류는 : ' + typeof(a));
-document.write('<br>');
-document.write('b 는 : ' + b);
-document.write('<br>');
-document.write('b의 종류는 : ' + typeof(b));
-document.write('<br>');
-document.write('c 는 : ' + c);
 </script>
 </body>
 </html>
-
-
-<!-- 
-a 는 : function(){ console.log(1); }
-a의 종류는 : function
-b 는 : function(){ console.log(1); }
-b의 종류는 : function
-c 는 : undefined
-
-
-a 는 : function(){ console.log(2); return function(){ console.log(3); } }
-a의 종류는 : function
-b 는 : function(){ console.log(2); return function(){ console.log(3); } }
-b의 종류는 : function
-c 는 : function(){ console.log(3); }
- -->

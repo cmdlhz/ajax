@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var a = function(){
+	console.log(1);
+}
+
+// a 자체를 대입
+var b = a;
+
+// a를 다 수행한 결과를 대입
+var c = a();
+document.write('a 는 : ' + a);
+document.write('<br>');
+document.write('a의 종류는 : ' + typeof(a));
+document.write('<br>');
+document.write('b 는 : ' + b);
+document.write('<br>');
+document.write('b의 종류는 : ' + typeof(b));
+document.write('<br>');
+document.write('c 는 : ' + c);
+document.write('<br>');
+document.write('<br>');
+document.write('<br>');
+
+
+
+var a = function(){
+	console.log(2);
+	return function(){
+		console.log(3);
+	}
+}
+
+// a 자체를 대입
+var b = a;
+
+// a를 다 수행한 결과를 대입
+var c = a();
+document.write('a 는 : ' + a);
+document.write('<br>');
+document.write('a의 종류는 : ' + typeof(a));
+document.write('<br>');
+document.write('b 는 : ' + b);
+document.write('<br>');
+document.write('b의 종류는 : ' + typeof(b));
+document.write('<br>');
+document.write('c 는 : ' + c);
+</script>
+</body>
+</html>
+
+
+<!-- 
+a 는 : function(){ console.log(1); }
+a의 종류는 : function
+b 는 : function(){ console.log(1); }
+b의 종류는 : function
+c 는 : undefined
+
+
+a 는 : function(){ console.log(2); return function(){ console.log(3); } }
+a의 종류는 : function
+b 는 : function(){ console.log(2); return function(){ console.log(3); } }
+b의 종류는 : function
+c 는 : function(){ console.log(3); }
+ -->

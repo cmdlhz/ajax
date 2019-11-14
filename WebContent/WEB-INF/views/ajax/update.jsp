@@ -33,6 +33,13 @@
 		</table>
 	</div>
 </body>
+<!-- ㅇ
+예전에 onclick="click()" 이라고 했을 때
+onclick = function(){
+	click();
+}
+이거임!
+ -->
 <button type="button" class="btn btn-outline-primary" onclick="goPage('/ajax/list')">목록</button>
 <script>
 	function update(){
@@ -48,7 +55,7 @@
 			var input = inputs[idx];
 			if(input.id) param[input.id] = input.value;
 		}
-		console.log(param);
+		console.log("param : " + param);
 	}
 
 	function ajax(conf){
