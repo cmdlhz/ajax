@@ -16,6 +16,8 @@ window.onload = function(){
 	xhr.open('GET', '/test');
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState == 4 && xhr.status == 200){
+			// When receiving data from a web server, the data is always a string.
+			// Parse the data with JSON.parse(), and the data becomes a JavaScript object.
 			var cities = JSON.parse(xhr.responseText);
 			console.log(cities);
 			var city = document.querySelector('#city');

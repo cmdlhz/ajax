@@ -19,3 +19,6 @@ public class Test10 {
 		System.out.println(t2);
 	}
 }
+
+// this.str = why
+// this.str = answer
