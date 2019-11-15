@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Search DB</title>
+</head>
+<body>
+<div name="rDiv">
+	<div name="inputDiv">
+		<input type="text" id="id" onkeyup="findId(this)">
+	</div>
+	<p>-</p>
+	<p>-</p>
+	<p>-</p>
+	<p>-</p>
+	<ul id="ulId"></ul>
+</div>
+<script>
+function findId(f){
+	var xhr = new XMLHttpRequest();
+	var url = '/searchDB/searchDB?';
+	if(f.value.trim().length > 0){
+		url += 'id=' + f.value.trim();
+	}
+	xhr.open('GET', url);
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == xhr.DONE){
+			var html = '';
+			
+			if(xhr.status == 200){
+				var idList = JSON.parse(xhr.responseText);
+				for(var id of idList){
+					html += '<li>' + id + '</li>';
+				}
+			}
+			document.querySelector('#ulId').innerHTML = html;
+		}
+	}
+	xhr.send();
+}
+</script>
+</body>
+</html>
