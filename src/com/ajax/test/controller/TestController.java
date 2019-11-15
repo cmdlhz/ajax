@@ -24,8 +24,9 @@ public class TestController extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 //		pw.print(as.selectSidoList(null));
 		pw.print(g.toJson(as.selectSidoList(null)));
-
 		//		pw.print("[\"서울\", \"광주\", \"부산\"]");
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

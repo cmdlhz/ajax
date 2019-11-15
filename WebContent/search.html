@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<div name="rDiv">
+	<div name="inputDiv">
+<!-- 		<label label for="id">Id: </label> -->
+		<input type="text" id="id" onkeyup="findId(this)">
+	</div>
+<!-- 	<div name="buttons"> -->
+<!-- 		<button name="findIdBtn">FIND</button> -->
+<!-- 		<button name="initIdBtn">RESET</button> -->
+<!-- 	</div> -->
+	<p>-</p>
+	<p>-</p>
+	<p>-</p>
+	<p>-</p>
+	<ul id="ulId">
+		
+	</ul>
+</div>
+<script>
+function findId(f){
+	var xhr = new XMLHttpRequest();
+	var url = '/search/search?';
+	if(f.value.trim().length > 0){
+		url += 'id=' + f.value.trim();
+	}
+	xhr.open('GET', url);
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == xhr.DONE){
+			var html = '';
+			
+			if(xhr.status == 200){
+				var idList = JSON.parse(xhr.responseText);
+				for(var id of idList){
+					html += '<li>' + id + '</li>';
+				}
+			}
+			document.querySelector('#ulId').innerHTML = html;
+		}
+	}
+	xhr.send();
+}
+
+
+// var findBtn = document.querySelector('div>div>button[name=findIdBtn]');
+// querySelectorAll 이면 하나라도 list로 나옴 ("name" vs ["name"])
+</script>
+</body>
+</html>
+
+<!-- 
+	검색했을 때 해당 스트링이 있는 값 찾아내기
+	"l" 검색시 => yellow, black, blue 나오게
+ -->

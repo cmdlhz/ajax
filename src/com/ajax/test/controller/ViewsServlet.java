@@ -22,10 +22,19 @@ public class ViewsServlet extends HttpServlet {
 //	 }
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// context root가 "/"가 아니라면 제거하는 code가 필요함
+		// String rootPath = request.getContextPath();
+		// string path = request.getRequestURI();
+		// path = path.replace(rootPath, "");
+		
 		String path = PREFIX + request.getRequestURI() + SUFFIX;
+		System.out.println(path);
+		
 		RequestDispatcher rd = request.getRequestDispatcher(path);
+		
+		// If a letter or message is forwarded to someone, it is sent to the place where they are, 
+		// after having been sent to a different place earlier.
 		rd.forward(request, response);
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -55,9 +55,9 @@ public class BoardController extends HttpServlet {
 			param.put("biNum", request.getParameter("biNum"));
 			// int로 받아도 됨
 			Map<String, String> board = bs.selectBoard(param);
-//			System.out.println(board);
+			System.out.println(board);
 			
-			// JSON 형태의 string으로
+			// JSON 형태의 string으로 (Convert Java objects to JSON)
 			pw.print(g.toJson(board));
 		}
 		return;
